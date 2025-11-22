@@ -202,7 +202,7 @@ pub fn tosc_write_bundle(b &Tosc_bundle, timetag u64, buffer &i8, len int) {
 //* *Write a message to a bundle buffer. Returns the number of bytes written.
 // 
 @[c2v_variadic]
-fn C.tosc_writeNextMessage(b &Tosc_bundle, address &i8, format &i8) u32
+fn C.tosc_writeNextMessage(b &Tosc_bundle, address &i8, format &i8, ...voidptr) u32
 
 pub fn tosc_write_next_message(b &Tosc_bundle, address &i8, format &i8) u32 {
 	return C.tosc_writeNextMessage(b, address, format)
@@ -220,7 +220,7 @@ pub fn tosc_get_bundle_length(b &Tosc_bundle) u32 {
 // *The entire buffer is cleared before writing.
 // 
 @[c2v_variadic]
-fn C.tosc_writeMessage(buffer &i8, len int, address &i8, fmt &i8) u32
+fn C.tosc_writeMessage(buffer &i8, len int, address &i8, fmt &i8, ...voidptr) u32
 
 pub fn tosc_write_message(buffer &i8, len int, address &i8, fmt &i8) u32 {
 	return C.tosc_writeMessage(buffer, len, address, fmt)
