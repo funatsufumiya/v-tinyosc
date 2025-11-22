@@ -21,6 +21,16 @@
 #if _WIN32
 #include <Winsock2.h>
 #define tosc_strncpy(_dst, _src, _len) strncpy_s(_dst, _len, _src, _TRUNCATE)
+
+// Start of WORKAROUND for V lang compiler
+#ifndef htonll
+#define htonll(x) htonl(x)
+#endif // htonll
+#ifndef ntohll
+#define ntohll(x) ntohl(x)
+#endif // ntohll
+// End of WORKAROUND for V lang compiler
+
 #else
 #include <netinet/in.h>
 #define tosc_strncpy(_dst, _src, _len) strncpy(_dst, _src, _len)
