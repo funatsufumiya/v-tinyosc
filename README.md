@@ -1,8 +1,5 @@
 # v-tinyosc
 
-> [!WARNING]
-> Work in progress !!
-
 C [tinyosc](https://github.com/funatsufumiya/tinyosc) binding for V language 
 
 ## Install
