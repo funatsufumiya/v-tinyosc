@@ -4,7 +4,9 @@ import net
 import tinyosc
 
 fn main() {
-	mut sender := net.dial_udp('127.0.0.1:9000')!
+	raddr := "127.0.0.1:9000"
+	mut sender := net.dial_udp(raddr)!
+	println("OSC send to ${raddr}")
 
 	mut buffer := []u8{cap: 2048}
 
