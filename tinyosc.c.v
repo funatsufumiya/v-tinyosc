@@ -7,25 +7,9 @@ $if windows {
 
 #flag -lWs2_32
 
-#include <WinSock2.h>
-#include <WS2tcpip.h>
-
 }$else{
 
-#include <arpa/inet.h>
-#include <sys/select.h>
-#include <sys/types.h>
-#include <sys/socket.h>
-#include <netdb.h>
-#include <unistd.h>
-
 }
-
-#include <string.h>
-#include <fcntl.h>
-#include <signal.h>
-#include <stdbool.h>
-#include <stdio.h>
 
 #include "tinyosc.h"
 #include "tinyosc.c"
