@@ -1,6 +1,35 @@
 @[translated]
 module tinyosc
 
+#flag -I @VMODROOT/c/tinyosc
+
+$if windows {
+
+#flag -lWs2_32
+
+#include <WinSock2.h>
+#include <WS2tcpip.h>
+
+}$else{
+
+#include <arpa/inet.h>
+#include <sys/select.h>
+#include <sys/types.h>
+#include <sys/socket.h>
+#include <netdb.h>
+#include <unistd.h>
+
+}
+
+#include <string.h>
+#include <fcntl.h>
+#include <signal.h>
+#include <stdbool.h>
+#include <stdio.h>
+
+#include "tinyosc.h"
+#include "tinyosc.c"
+
 //* *Copyright (c) 2015-2018, Martin Roth (mhroth@gmail.com)
 // * *Permission to use, copy, modify, and/or distribute this software for any
 // *purpose with or without fee is hereby granted, provided that the above
