@@ -204,9 +204,9 @@ pub fn tosc_write_bundle(b &Tosc_bundle, timetag u64, buffer &i8, len int) {
 @[c2v_variadic]
 fn C.tosc_writeNextMessage(b &Tosc_bundle, address &i8, format &i8, ...voidptr) u32
 
-pub fn tosc_write_next_message(b &Tosc_bundle, address &i8, format &i8) u32 {
-	return C.tosc_writeNextMessage(b, address, format)
-}
+// pub fn tosc_write_next_message(b &Tosc_bundle, address &i8, format &i8, values ...voidptr) u32 {
+// 	return C.tosc_writeNextMessage(b, address, format, ...values)
+// }
 
 //* *Returns the length in bytes of the bundle.
 // 
@@ -222,9 +222,9 @@ pub fn tosc_get_bundle_length(b &Tosc_bundle) u32 {
 @[c2v_variadic]
 fn C.tosc_writeMessage(buffer &i8, len int, address &i8, fmt &i8, ...voidptr) u32
 
-pub fn tosc_write_message(buffer &i8, len int, address &i8, fmt &i8) u32 {
-	return C.tosc_writeMessage(buffer, len, address, fmt)
-}
+// pub fn tosc_write_message(buffer &i8, len u32, address &i8, fmt &i8, values ...voidptr) u32 {
+// 	return C.tosc_writeMessage(buffer, len, address, fmt, ...values)
+// }
 
 //* *A convenience function to (non-destructively) print a buffer containing
 // *an OSC message to stdout.
