@@ -13,6 +13,7 @@ $if windows {
 
 #include "tinyosc.h"
 #include "tinyosc.c"
+#include "tinyosc_utils.h"
 
 //* *Copyright (c) 2015-2018, Martin Roth (mhroth@gmail.com)
 // * *Permission to use, copy, modify, and/or distribute this software for any
@@ -25,8 +26,10 @@ $if windows {
 // *LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR
 // *OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
 // *PERFORMANCE OF THIS SOFTWARE.
-// 
-struct Tosc_message { 
+
+@[typedef]
+pub struct C.tosc_message { 
+pub mut:
 	format &i8
 // a pointer to the format field
 	marker &i8
@@ -36,7 +39,10 @@ struct Tosc_message {
 	len u32
 // length of the buffer data
 }
-struct Tosc_bundle { 
+
+@[typedef]
+pub struct C.tosc_bundle { 
+pub mut:
 	marker &i8
 // the current write head (where the next message will be written)
 	buffer &i8
@@ -46,6 +52,13 @@ struct Tosc_bundle {
 	bundleLen u32
 // the byte length of the total bundle
 }
+
+type Tosc_bundle = C.tosc_bundle
+type Tosc_message = C.tosc_message
+
+fn C.tosc_message_empty() C.tosc_message
+fn C.tosc_bundle_empty() C.tosc_bundle
+
 //* *Returns true if the buffer refers to a bundle of OSC messages. False otherwise.
 // 
 fn C.tosc_isBundle(buffer &i8) bool
