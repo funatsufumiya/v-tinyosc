@@ -1,5 +1,8 @@
 # v-tinyosc
 
+> [!NOTE]
+> If you need pure V implementation, use [vosc](https://github.com/funatsufumiya/vosc) instead.
+
 C [tinyosc](https://github.com/funatsufumiya/tinyosc) binding for V language 
 
 ## Install
